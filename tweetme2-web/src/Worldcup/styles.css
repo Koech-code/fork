@@ -1,0 +1,21 @@
+.d-flex{
+    width: 80%;
+    height: 30%;
+    border: #fff;
+    border-radius: 2%;
+    background-color: #fff;
+    margin: 4px;
+    border: 3px solid #fff;
+}
+
+.col-4{
+    float: left;
+   
+    margin-right: 10px;
+}
+.col-3 {
+    float: right;
+    width: 50%;
+    margin-right: 0px;
+    
+}
