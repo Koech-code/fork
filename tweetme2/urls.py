@@ -24,11 +24,6 @@ from django.views.generic import TemplateView
 # from accounts.views import LoginAPI
 # from django.urls import path
 
-from accounts.views import (
-   login_view,
-   logout_view,
-   register_view,
-)
 
 from Afcon.views import (
     Afconhome_view,
@@ -89,7 +84,9 @@ from Worldcup.views import (
     Worldcuptweets_detail_view,
 )
 
+
 urlpatterns = [
+    path('api/', include('accounts.urls')),
     path('', home_view),
     path('Afcon/', Afconhome_view),
     path('Baseball/', Baseballhome_view),
@@ -108,9 +105,9 @@ urlpatterns = [
     # path('api/login/', LoginAPI.as_view(), name='login'),
     # path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
     # path('api/logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
-   path('login/', login_view),
-   path('logout/', logout_view),
-   path('register/', register_view),
+    # path('login/', login_view),
+    # path('logout/', logout_view),
+    # path('register/', register_view),
     path('Afcon/<int:tweet_id>/', Afcontweets_detail_view),
     path('Baseball/<int:tweet_id>/', Baseballtweets_detail_view),
     path('Bundesliga/<int:tweet_id>/', Bundesligatweets_detail_view),
@@ -130,7 +127,7 @@ urlpatterns = [
     path('api/Bundesliga/', include('Bundesliga.api.urls')),
     path('api/Worldcup/', include('Worldcup.api.urls')),
     path('api/Afcon/', include('Afcon.api.urls')),
-    path('api/accounts/', include('accounts.api.urls')),
+    
     path('api/Baseball/', include('Baseball.api.urls')),
     path('api/Europa/', include('Europa.api.urls')),
     path('api/Formula1/', include('Formula1.api.urls')),
